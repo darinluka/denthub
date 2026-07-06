@@ -35,7 +35,7 @@ const ORDER_TYPES = ['Kurorë Porcelani', 'Kurorë Zirkoni', 'Implant', 'Urë Po
 
 const initialOrders: LabOrder[] = [
   { id: '1', patient: 'Agim Ramadani', phone: '+35569123456', type: 'Kurorë Zirkoni', teeth: '11, 12, 21', lab: 'Lab Prestige', orderDate: '10 Qer 2026', readyDate: '20 Qer 2026', status: 'Gati', notes: '3 kurora – ngjyra A2', notified: false },
-  { id: '2', patient: 'Teuta Kelmendi', phone: '+35568987654', type: 'Implant', teeth: '46', lab: 'Lab Dental Art', orderDate: '15 Qer 2026', readyDate: '25 Qer 2026', status: 'Ne Prodhim', notes: 'Titan Grade 4', notified: false },
+  { id: '2', patient: 'Teuta Kelmendi', phone: '+35568987654', type: 'Implant', teeth: '32', lab: 'Lab Dental Art', orderDate: '15 Qer 2026', readyDate: '25 Qer 2026', status: 'Ne Prodhim', notes: 'Titan Grade 4', notified: false },
   { id: '3', patient: 'Dritan Hoxha', phone: '+35567456789', type: 'Protezë', teeth: 'Nofull e poshtme', lab: 'Lab Prestige', orderDate: '8 Qer 2026', readyDate: '18 Qer 2026', status: 'U Vendos', notes: 'Acrylic pink', notified: true },
 ];
 

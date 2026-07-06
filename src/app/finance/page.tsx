@@ -48,7 +48,7 @@ const allTransactions: Transaction[] = [
   { id:'3', date:'2026-06-14', dateLabel:'14 Qer 2026', patient:'Dritan Hoxha', service:'Kurorë Porcelani', amount:25000, paid:25000, method:'Transfer', status:'Paguar' },
   { id:'4', date:'2026-06-18', dateLabel:'18 Qer 2026', patient:'Blerina Koci', service:'Mbushje Kompozit', amount:6000, paid:0, method:'Cash', status:'Pa Paguar' },
   { id:'5', date:'2026-06-20', dateLabel:'20 Qer 2026', patient:'Erion Daci', service:'Pastrim + Konsultë', amount:5500, paid:5500, method:'Cash', status:'Paguar' },
-  { id:'6', date:'2026-05-05', dateLabel:'5 Maj 2026', patient:'Agim Ramadani', service:'Implant (46)', amount:80000, paid:80000, method:'Transfer', status:'Paguar' },
+  { id:'6', date:'2026-05-05', dateLabel:'5 Maj 2026', patient:'Agim Ramadani', service:'Implant (32)', amount:80000, paid:80000, method:'Transfer', status:'Paguar' },
   { id:'7', date:'2026-05-15', dateLabel:'15 Maj 2026', patient:'Vera Shala', service:'Protezë e Plotë', amount:35000, paid:20000, method:'Cash', status:'Pjesërisht' },
 ];
 

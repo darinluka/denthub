@@ -24,15 +24,15 @@ const mockPatient = {
 };
 
 const mockTreatments = [
-  { date: '10 Qer 2026', tooth: '36', description: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', status: 'Kryer', cost: 4000 },
-  { date: '15 Maj 2026', tooth: '46', description: 'Mbushje Kompozit', doctor: 'Dr. Agimi', status: 'Kryer', cost: 6000 },
+  { date: '10 Qer 2026', tooth: '30', description: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', status: 'Kryer', cost: 4000 },
+  { date: '15 Maj 2026', tooth: '32', description: 'Mbushje Kompozit', doctor: 'Dr. Agimi', status: 'Kryer', cost: 6000 },
   { date: '2 Prill 2026', tooth: '11', description: 'Kurorë Porcelani', doctor: 'Dr. Agimi', status: 'Planifikuar', cost: 25000 },
 ];
 
 // Simulated grayscale X-ray placeholders via CSS gradients
 const initialXrays = [
-  { id: 1, date: '10 Qer 2026', title: 'Panoramike e Plotë', notes: 'Dhëmbi 36 me kariez të thellë', color: '#475569' },
-  { id: 2, date: '15 Maj 2026', title: 'Periapikale Dhëmbi 46', notes: 'Mbushje e vjetër e dëmtuar', color: '#334155' },
+  { id: 1, date: '10 Qer 2026', title: 'Panoramike e Plotë', notes: 'Dhëmbi 30 me karies të thellë', color: '#475569' },
+  { id: 2, date: '15 Maj 2026', title: 'Grafi e Poshtme', notes: 'Mbushje e vjetër e dëmtuar', color: '#334155' },
 ];
 
 const DOCTORS = ['Dr. Agim Hoxha', 'Dr. Blerina Koci', 'Dr. Ermal Doci'];

@@ -22,7 +22,7 @@ const todayStr = today.toISOString().split('T')[0];
 const initialAppointments: Appointment[] = [
   { id: 1, patient: 'Agim Ramadani', treatment: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', date: todayStr, time: '09:00', duration: '90', type: 'treatment' },
   { id: 2, patient: 'Teuta Kelmendi', treatment: 'Konsultë & Grafi', doctor: 'Dr. Agimi', date: todayStr, time: '11:30', duration: '45', type: 'consultation' },
-  { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 46)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery' },
+  { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 32)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery' },
 ];
 
 const MOCK_SERVICES = [
@@ -75,7 +75,7 @@ export default function Appointments() {
     const defaultAppts: Appointment[] = [
       { id: 1, patient: 'Agim Ramadani', treatment: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', date: todayValStr, time: '09:00', duration: '90', type: 'treatment' },
       { id: 2, patient: 'Teuta Kelmendi', treatment: 'Konsultë & Grafi', doctor: 'Dr. Agimi', date: todayValStr, time: '11:30', duration: '45', type: 'consultation' },
-      { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 46)', doctor: 'Dr. Agimi', date: todayValStr, time: '14:00', duration: '120', type: 'surgery' },
+      { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 32)', doctor: 'Dr. Agimi', date: todayValStr, time: '14:00', duration: '120', type: 'surgery' },
     ];
     try {
       const saved = localStorage.getItem('appointments_list');

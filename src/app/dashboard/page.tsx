@@ -93,7 +93,7 @@ export default function Home() {
     const defaultAppts = [
       { id: 1, patient: 'Agim Ramadani', treatment: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', date: todayStr, time: '09:00', duration: '90', type: 'treatment', status: 'Në pritje', statusClass: 'statusPending' },
       { id: 2, patient: 'Teuta Kelmendi', treatment: 'Konsultë & Grafi', doctor: 'Dr. Agimi', date: todayStr, time: '11:30', duration: '45', type: 'consultation', status: 'Planifikuar', statusClass: 'statusScheduled' },
-      { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 46)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery', status: 'Planifikuar', statusClass: 'statusScheduled' },
+      { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 32)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery', status: 'Planifikuar', statusClass: 'statusScheduled' },
     ];
     let loadedAppts = defaultAppts;
     try {
@@ -236,7 +236,7 @@ export default function Home() {
         currentAppts = [
           { id: 1, patient: 'Agim Ramadani', treatment: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', date: todayStr, time: '09:00', duration: '90', type: 'treatment', status: 'Në pritje', statusClass: 'statusPending' },
           { id: 2, patient: 'Teuta Kelmendi', treatment: 'Konsultë & Grafi', doctor: 'Dr. Agimi', date: todayStr, time: '11:30', duration: '45', type: 'consultation', status: 'Planifikuar', statusClass: 'statusScheduled' },
-          { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 46)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery', status: 'Planifikuar', statusClass: 'statusScheduled' },
+          { id: 3, patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 32)', doctor: 'Dr. Agimi', date: todayStr, time: '14:00', duration: '120', type: 'surgery', status: 'Planifikuar', statusClass: 'statusScheduled' },
         ];
       }
     } catch (err) {

@@ -49,7 +49,7 @@ function SearchContent() {
     let appts = [
       { id: '1', patient: 'Agim Ramadani', treatment: 'Pastrim Gurëzash', doctor: 'Dr. Agimi', date: '2026-06-24', time: '09:00', duration: '90', type: 'treatment' },
       { id: '2', patient: 'Teuta Kelmendi', treatment: 'Konsultë & Grafi', doctor: 'Dr. Agimi', date: '2026-06-24', time: '11:30', duration: '45', type: 'consultation' },
-      { id: '3', patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 46)', doctor: 'Dr. Agimi', date: '2026-06-24', time: '14:00', duration: '120', type: 'surgery' },
+      { id: '3', patient: 'Dritan Hoxha', treatment: 'Implant (Dhëmbi 32)', doctor: 'Dr. Agimi', date: '2026-06-24', time: '14:00', duration: '120', type: 'surgery' },
     ];
     try {
       const savedAppts = localStorage.getItem('appointments_list');
@@ -80,7 +80,7 @@ function SearchContent() {
     // 4. Lab items
     let labOrders = [
       { id: '1', patient: 'Agim Ramadani', phone: '+35569123456', type: 'Kurorë Zirkoni', teeth: '11, 12, 21', lab: 'Lab Prestige', orderDate: '10 Qer 2026', readyDate: '20 Qer 2026', status: 'Gati', notes: '3 kurora – ngjyra A2', notified: false },
-      { id: '2', patient: 'Teuta Kelmendi', phone: '+35568987654', type: 'Implant', teeth: '46', lab: 'Lab Dental Art', orderDate: '15 Qer 2026', readyDate: '25 Qer 2026', status: 'Ne Prodhim', notes: 'Titan Grade 4', notified: false },
+      { id: '2', patient: 'Teuta Kelmendi', phone: '+35568987654', type: 'Implant', teeth: '32', lab: 'Lab Dental Art', orderDate: '15 Qer 2026', readyDate: '25 Qer 2026', status: 'Ne Prodhim', notes: 'Titan Grade 4', notified: false },
       { id: '3', patient: 'Dritan Hoxha', phone: '+35567456789', type: 'Protezë', teeth: 'Nofull e poshtme', lab: 'Lab Prestige', orderDate: '8 Qer 2026', readyDate: '18 Qer 2026', status: 'U Vendos', notes: 'Acrylic pink', notified: true },
     ];
     try {
