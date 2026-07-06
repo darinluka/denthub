@@ -636,8 +636,8 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: transparent;
-  backdrop-filter: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;

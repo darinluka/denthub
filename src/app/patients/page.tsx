@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { Plus, Search, X, User, Phone, Calendar, Mail, FolderOpen, MessageCircle, AlertTriangle } from 'lucide-react';
 import styles from './patients.module.css';
@@ -139,7 +140,7 @@ export default function PatientsList() {
       </div>
 
       {/* Add Patient Modal */}
-      {showModal && (
+      {showModal && createPortal(
         <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
           <div className={styles.modal} onClick={e => e.stopPropagation()}>
             <div className={styles.modalHeader}>
@@ -180,7 +181,8 @@ export default function PatientsList() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
