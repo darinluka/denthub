@@ -8,7 +8,15 @@ import {
   Plus, Activity, CreditCard, X, Pencil, Check, ZoomIn, ZoomOut, Maximize2,
   AlertTriangle, User, Stethoscope
 } from 'lucide-react';
-import Odontogram3D from './Odontogram3D';
+import dynamic from 'next/dynamic';
+const Odontogram3D = dynamic(() => import('./Odontogram3D'), {
+  ssr: false,
+  loading: () => (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '500px', backgroundColor: '#f8fafc', borderRadius: '16px', border: '1px solid #e2e8f0', color: '#64748b' }}>
+      Duke ngarkuar Odontogramin 3D...
+    </div>
+  )
+});
 import styles from './kartela.module.css';
 
 const mockPatient = {
