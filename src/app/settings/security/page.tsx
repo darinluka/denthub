@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Shield, Smartphone, Key, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Shield, Smartphone, Key } from 'lucide-react';
+import styles from './security.module.css';
 
 export default function SecuritySettings() {
   const [is2faEnabled, setIs2faEnabled] = useState(false);
@@ -45,41 +46,41 @@ export default function SecuritySettings() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Menaxho mbrojtjen e llogarive të stafit dhe të dhënat e pacientëve</p>
       </header>
 
-      <div style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)', padding: '24px', boxShadow: 'var(--shadow-sm)' }}>
+      <div className={styles.card}>
         
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '24px', marginBottom: '24px' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#7c3aed15', color: '#7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div className={`${styles.row} ${styles.row2fa}`}>
+          <div className={styles.iconContainer}>
             <Shield size={24} />
           </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <h3 style={{ margin: '0 0 4px 0', fontSize: '1.1rem', color: 'var(--text-main)' }}>Autentikimi me 2 Hapa (Google Authenticator)</h3>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>Mbro llogarinë tënde duke përdorur një aplikacion autentikimi si Google Authenticator. Një kod i ri gjenerohet çdo 30 sekonda.</p>
+          <div className={styles.content}>
+            <div className={styles.headerRow}>
+              <div className={styles.titleContainer}>
+                <h3 className={styles.title}>Autentikimi me 2 Hapa (Google Authenticator)</h3>
+                <p className={styles.description}>Mbro llogarinë tënde duke përdorur një aplikacion autentikimi si Google Authenticator. Një kod i ri gjenerohet çdo 30 sekonda.</p>
               </div>
-              <label style={{ position: 'relative', display: 'inline-block', width: '50px', height: '26px' }}>
-                <input type="checkbox" checked={is2faEnabled} onChange={handleToggle2fa} style={{ opacity: 0, width: 0, height: 0 }} />
-                <span style={{ position: 'absolute', cursor: 'pointer', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: is2faEnabled ? '#10b981' : '#cbd5e1', transition: '.4s', borderRadius: '34px' }}>
-                  <span style={{ position: 'absolute', content: '""', height: '20px', width: '20px', left: is2faEnabled ? '26px' : '3px', bottom: '3px', backgroundColor: 'white', transition: '.4s', borderRadius: '50%' }}></span>
+              <label className={styles.toggleLabel}>
+                <input type="checkbox" checked={is2faEnabled} onChange={handleToggle2fa} className={styles.toggleInput} />
+                <span className={styles.toggleSlider} style={{ backgroundColor: is2faEnabled ? '#10b981' : '#cbd5e1' }}>
+                  <span className={styles.toggleKnob} style={{ left: is2faEnabled ? '26px' : '3px' }}></span>
                 </span>
               </label>
             </div>
 
             {is2faEnabled && (
-              <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', display: 'flex', gap: '20px', alignItems: 'center' }}>
-                <div style={{ padding: '10px', backgroundColor: 'white', border: '1px solid #cbd5e1', borderRadius: '8px' }}>
+              <div className={styles.qrContainer}>
+                <div className={styles.qrCodeBox}>
                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=otpauth://totp/Denthub.al:admin@klinika.al?secret=JBSWY3DPEHPK3PXP&issuer=Denthub.al" alt="QR Code" width="120" height="120" />
                 </div>
-                <div style={{ flex: 1 }}>
-                  <h4 style={{ margin: '0 0 8px 0', color: '#0f172a', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div className={styles.qrInfo}>
+                  <h4 className={styles.qrTitle}>
                     <Smartphone size={18} color="#0ea5e9" /> Konfiguro Google Authenticator
                   </h4>
-                  <ol style={{ margin: 0, paddingLeft: '20px', fontSize: '0.85rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <ol className={styles.stepsList}>
                     <li>Shkarko aplikacionin <strong>Google Authenticator</strong> nga App Store ose Google Play.</li>
                     <li>Shtyp butonin <strong>+</strong> në aplikacion dhe zgjidh "Scan a QR code".</li>
                     <li>Skano kodin QR që sheh në të majtë për ta lidhur me llogarinë.</li>
                   </ol>
-                  <div style={{ marginTop: '12px', padding: '8px 12px', backgroundColor: '#e0f2fe', borderRadius: '6px', fontSize: '0.8rem', color: '#0369a1', fontFamily: 'monospace' }}>
+                  <div className={styles.manualKey}>
                     Ose përdor këtë çelës manualisht: <strong>JBSWY3DPEHPK3PXP</strong>
                   </div>
                 </div>
@@ -88,13 +89,13 @@ export default function SecuritySettings() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#e2e8f0', color: '#64748b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div className={styles.passwordRow}>
+          <div className={styles.passwordIconContainer}>
             <Key size={24} />
           </div>
-          <div style={{ flex: 1 }}>
-            <h3 style={{ margin: '0 0 4px 0', fontSize: '1.1rem', color: 'var(--text-main)' }}>Ndrysho Fjalëkalimin</h3>
-            <p style={{ margin: '0 0 16px 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>Përditësoni fjalëkalimin tuaj aktual të llogarisë.</p>
+          <div className={styles.content}>
+            <h3 className={styles.title}>Ndrysho Fjalëkalimin</h3>
+            <p className={styles.description} style={{ marginBottom: '16px' }}>Përditësoni fjalëkalimin tuaj aktual të llogarisë.</p>
             {!isPasswordFormOpen ? (
               <button 
                 onClick={() => setIsPasswordFormOpen(true)}
@@ -104,7 +105,7 @@ export default function SecuritySettings() {
                 Ndrysho Fjalëkalimin
               </button>
             ) : (
-              <div style={{ marginTop: '16px', padding: '20px', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px' }}>
+              <div className={styles.passwordFormContainer}>
                 {passwordSuccess ? (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#16a34a', fontWeight: 500 }}>
                     <Shield size={20} /> Fjalëkalimi u ndryshua me sukses!
