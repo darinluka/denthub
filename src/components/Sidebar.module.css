@@ -1,0 +1,221 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+}
+
+.logo {
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo h2 {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.nav {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.navLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  padding: 0 14px 6px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  color: var(--text-muted);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.link:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.link.active {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background-color: var(--primary-color);
+  border-radius: 0 4px 4px 0;
+}
+
+.link.active .iconWrap {
+  color: var(--primary-color);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.link:hover .iconWrap,
+.link.active .iconWrap {
+  background-color: rgba(5, 150, 105, 0.12);
+}
+
+.label {
+  flex: 1;
+}
+
+.bottom {
+  padding: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  color: var(--danger-color);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.logoutBtn:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* Collapsed State Styles */
+.collapsed {
+  width: 80px;
+  transition: width var(--transition-normal);
+}
+
+.sidebar:not(.collapsed) {
+  transition: width var(--transition-normal);
+}
+
+.collapsed .logo {
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.collapsed .navLabel,
+.collapsed .label,
+.collapsed .logoutBtn span {
+  display: none;
+}
+
+.collapsed .link {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.collapsed .logoutBtn {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px !important;
+    transform: translateX(0);
+    transition: transform var(--transition-normal) !important;
+    z-index: 100;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+    width: 260px !important;
+  }
+  
+  /* Reset collapsing displays on mobile drawer open */
+  .sidebar:not(.collapsed) .navLabel {
+    display: block !important;
+  }
+  .sidebar:not(.collapsed) .label {
+    display: block !important;
+  }
+  .sidebar:not(.collapsed) .logoutBtn span {
+    display: inline !important;
+  }
+  .sidebar:not(.collapsed) .logo {
+    justify-content: flex-start !important;
+    padding: 24px 20px !important;
+  }
+  .sidebar:not(.collapsed) .link {
+    justify-content: flex-start !important;
+    padding: 10px 14px !important;
+  }
+  .sidebar:not(.collapsed) .logoutBtn {
+    justify-content: flex-start !important;
+    padding: 10px 14px !important;
+  }
+}

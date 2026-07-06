@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  DOCTOR
+  RECEPTIONIST
+  ASSISTANT
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum TreatmentStatus {
+  PLANNED
+  COMPLETED
+}
+
+enum DocumentType {
+  XRAY
+  PHOTO
+  LAB_RESULT
+  OTHER
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  passwordHash String
+  name         String
+  role         Role          @default(RECEPTIONIST)
+  phone        String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  appointments Appointment[] @relation("DoctorAppointments")
+}
+
+model Patient {
+  id             String   @id @default(uuid())
+  firstName      String
+  lastName       String
+  email          String?
+  phone          String
+  dateOfBirth    DateTime?
+  address        String?
+  medicalHistory String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  appointments   Appointment[]
+  treatments     Treatment[]
+  documents      Document[]
+  invoices       Invoice[]
+}
+
+model Appointment {
+  id        String            @id @default(uuid())
+  dateTime  DateTime
+  patientId String
+  doctorId  String
+  status    AppointmentStatus @default(SCHEDULED)
+  notes     String?           @db.Text
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  patient   Patient @relation(fields: [patientId], references: [id])
+  doctor    User    @relation("DoctorAppointments", fields: [doctorId], references: [id])
+}
+
+model Treatment {
+  id          String          @id @default(uuid())
+  patientId   String
+  toothNumber String?         // P.sh. "14", "26" ose bosh per vizite te pergjithshme
+  description String
+  price       Decimal         @db.Decimal(10, 2)
+  status      TreatmentStatus @default(PLANNED)
+  date        DateTime        @default(now())
+  
+  patient     Patient @relation(fields: [patientId], references: [id])
+}
+
+model Document {
+  id          String       @id @default(uuid())
+  patientId   String
+  type        DocumentType @default(XRAY)
+  fileUrl     String       // URL e skedarit ne S3/Cloudinary
+  title       String?
+  notes       String?      @db.Text
+  uploadedAt  DateTime     @default(now())
+
+  patient     Patient @relation(fields: [patientId], references: [id])
+}
+
+model Invoice {
+  id          String   @id @default(uuid())
+  patientId   String
+  totalAmount Decimal  @db.Decimal(10, 2)
+  paidAmount  Decimal  @db.Decimal(10, 2) @default(0)
+  status      String   // P.sh. "PAID", "PARTIAL", "UNPAID"
+  date        DateTime @default(now())
+
+  patient     Patient @relation(fields: [patientId], references: [id])
+}
