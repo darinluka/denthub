@@ -5,15 +5,19 @@ export async function sendTelegramNotification(message: string) {
 
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('telegram_settings');
-      if (saved) {
-        const settings = JSON.parse(saved);
-        if (settings.enabled === false) {
-          // Telegram notifications are disabled by the user
-          return;
-        }
-        bot_token = settings.botToken;
-        chat_id = settings.chatId;
+      if (!saved) {
+        // Telegram notifications are not configured, do not send
+        return;
       }
+      
+      const settings = JSON.parse(saved);
+      if (!settings || settings.enabled !== true || !settings.botToken || !settings.chatId) {
+        // Telegram notifications are disabled or incomplete
+        return;
+      }
+      
+      bot_token = settings.botToken;
+      chat_id = settings.chatId;
     }
 
     const response = await fetch('/api/telegram', {

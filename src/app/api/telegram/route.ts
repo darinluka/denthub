@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8674028430:AAEsNrExdWJc60UdRwsGmmne48-pDL71sqY';
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '1179683039';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 export async function POST(request: Request) {
   try {
@@ -15,11 +15,11 @@ export async function POST(request: Request) {
     }
 
     if (!chat_id) {
-      return NextResponse.json({ error: 'Chat ID is required' }, { status: 400 });
+      return NextResponse.json({ error: 'Chat ID is required but not configured' }, { status: 400 });
     }
 
     if (!bot_token) {
-      return NextResponse.json({ error: 'Bot Token is required' }, { status: 400 });
+      return NextResponse.json({ error: 'Bot Token is required but not configured' }, { status: 400 });
     }
 
     const response = await fetch(`https://api.telegram.org/bot${bot_token}/sendMessage`, {

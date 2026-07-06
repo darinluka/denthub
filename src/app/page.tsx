@@ -276,7 +276,7 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b' }}>Na shkruani në email</span>
-                  <strong style={{ fontSize: '0.92rem', color: '#0f172a' }}>support@denthub.al</strong>
+                  <a href="mailto:denthubal@gmail.com" style={{ fontSize: '0.92rem', color: '#0f172a', textDecoration: 'none', fontWeight: 'bold' }}>denthubal@gmail.com</a>
                 </div>
               </div>
 
@@ -286,7 +286,7 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <span style={{ display: 'block', fontSize: '0.72rem', color: '#64748b' }}>Na telefononi</span>
-                  <strong style={{ fontSize: '0.92rem', color: '#0f172a' }}>+355 69 777 8888</strong>
+                  <a href="tel:+355689901579" style={{ fontSize: '0.92rem', color: '#0f172a', textDecoration: 'none', fontWeight: 'bold' }}>+355 68 990 1579</a>
                 </div>
               </div>
 
